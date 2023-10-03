@@ -8,10 +8,12 @@ between them. The lowest number will not always come first.
 function sumAll(arr) {
   let totalSum = 0;
 
+  arr.sort((a, b) => a - b);
+
   for (let i = arr[0]; i <= arr[1]; i++) {
     totalSum += i;
   }
-
+  
   return totalSum;
 };
 
