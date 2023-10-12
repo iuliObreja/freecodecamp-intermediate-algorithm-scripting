@@ -37,9 +37,31 @@ function orbitalPeriod(arr) {
   return [newObj];
 };
 
+// Map() method
+function orbitalPeriodMap(arr) {
+  const GM = 398600.4418;
+  const earthRadius = 6367.4447;
+
+  const arrOfObj = arr.map( obj => {
+    const a = earthRadius + obj.avgAlt;
+    const T = Math.round(2 * Math.PI * Math.sqrt(a ** 3 / GM));
+
+    return { name: obj.name, orbitalPeriod: T };
+  });
+
+  return arrOfObj;
+}
+
 console.log(orbitalPeriod([{ name: 'sputnik', avgAlt : 35873.5553 }]));
 console.log(orbitalPeriod([
-  { name: "iss", avgAlt: 413.6}, 
+  {name: "iss", avgAlt: 413.6}, 
+  {name: "hubble", avgAlt: 556.7}, 
+  {name: "moon", avgAlt: 378632.553}])
+);
+
+console.log(orbitalPeriodMap([{ name: 'sputnik', avgAlt : 35873.5553 }]));
+console.log(orbitalPeriodMap([
+  {name: "iss", avgAlt: 413.6}, 
   {name: "hubble", avgAlt: 556.7}, 
   {name: "moon", avgAlt: 378632.553}])
 );
