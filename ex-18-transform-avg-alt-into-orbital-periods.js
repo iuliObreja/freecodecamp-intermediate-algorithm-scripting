@@ -20,9 +20,10 @@
 function orbitalPeriod(arr) {
   const GM = 398600.4418;
   const earthRadius = 6367.4447;
-  const newObj = {};
+  const arrOfObj = [];
 
   for (let obj of arr) {
+    const newObj = {};
     for (let property in obj) {
       if (property === 'avgAlt') {
         const a = earthRadius + obj[property];
@@ -30,11 +31,13 @@ function orbitalPeriod(arr) {
 
         newObj.name = obj.name;
         newObj.orbitalPeriod = T;
+
+        arrOfObj.push(newObj);
       }
     }
   }
   
-  return [newObj];
+  return arrOfObj;
 };
 
 // Map() method
