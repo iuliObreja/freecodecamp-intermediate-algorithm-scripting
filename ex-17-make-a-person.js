@@ -33,8 +33,8 @@ const Person = function(first, last) {
   };
 
   this.setFullName = function(first, last) {
-    this.setFirstName(first);
-    this.setLastName(last);
+    firstName = first;
+    lastName = last;
 
     return this.getFullName();
   };
