@@ -9,12 +9,9 @@ function flatNestedArray(arr) {
   let flattenArr = [];
   
   for (let elem of arr) {
-    if (Array.isArray(elem)) {
-      const flatTheArr = flatNestedArray(elem);
-      flattenArr = flattenArr.concat(flatTheArr);
-    } else {
-      flattenArr.push(elem);
-    }
+    Array.isArray(elem) 
+      ? flattenArr = flattenArr.concat(flatNestedArray(elem)) 
+      : flattenArr.push(elem);
   }
 
   return flattenArr;
